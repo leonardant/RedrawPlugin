@@ -1,13 +1,22 @@
-var exec = require("cordova/exec");
+/*
+implementation demo from
+https://github.com/phonegap/phonegap-plugins/wiki/Defining-Your-Cordova-Plugin-As-A-Cordova-Module
+*/
 
-var Redraw = function() {};
+cordova.define("cordova/plugin/redraw", function(require, exports, module) {
+	var exec = require("cordova/exec");
 
-Redraw.invalidateWebView = function (successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "Redraw", "invalidateWebView", []);
-};
+	var Redraw = function() {};
 
-Redraw.invalidateWebViewDelayed = function (delay, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "Redraw", "invalidateWebView", [delay]);
-};
+	Redraw.invalidateWebView = function (successCallback, errorCallback) {
+    		exec(successCallback, errorCallback, "Redraw", "invalidateWebView", []);
+	};
 
-module.exports = Redraw;
+	Redraw.invalidateWebViewDelayed = function (delay, successCallback, errorCallback) {
+    		exec(successCallback, errorCallback, "Redraw", "invalidateWebView", [delay]);
+	};
+
+	var myRedraw = new Redraw ();
+
+	module.exports = myRedraw;
+});
