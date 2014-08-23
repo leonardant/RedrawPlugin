@@ -20,3 +20,4 @@ https://github.com/phonegap/phonegap-plugins/wiki/Defining-Your-Cordova-Plugin-A
 
 	module.exports = Redraw;
 //});
+
